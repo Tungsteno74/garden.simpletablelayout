@@ -2,6 +2,7 @@ import os
 
 from setuptools import find_namespace_packages, setup
 
+from __init__ import __version__
 
 def read(fname):
     with open(os.path.join(os.path.dirname(__file__), fname)) as f:
