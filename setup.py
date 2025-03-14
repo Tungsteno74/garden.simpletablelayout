@@ -20,11 +20,10 @@ setup_params = {
     'author_email': 'kivy@kivy.org',
     'keywords': 'Kivy kivy-garden',
     'url': 'https://github.com/kivy-garden/garden.simpletablelayout',
-    'packages': find_namespace_packages(where='src'),
+    'packages': find_namespace_packages(),
     'package_data': {
         'kivy_garden.simpletablelayout': ['*.kv'],
     },
-    'package_dir': {'': 'src'},
     'python_requires': '>=3',
     'install_requires': [
         'kivy',
