@@ -23,7 +23,7 @@ setup_params = {
     'url': 'https://github.com/kivy-garden/garden.simpletablelayout',
     'packages': find_namespace_packages(where='src'),
     'package_data': {
-        'kivy_garden.qrcode': ['*.kv'],
+        'kivy_garden.simpletablelayout': ['*.kv'],
     },
     'package_dir': {'': 'src'},
     'python_requires': '>=3',
