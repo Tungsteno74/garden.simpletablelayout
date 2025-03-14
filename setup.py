@@ -2,7 +2,7 @@ import os
 
 from setuptools import find_namespace_packages, setup
 
-from src.kivy_garden.qrcode.version import __version__
+from simpletablelayout import __version__
 
 
 def read(fname):
