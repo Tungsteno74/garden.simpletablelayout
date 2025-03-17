@@ -55,7 +55,6 @@
 """
 
 __all__ = ('SimpleTableLayout', )
-__version__ = '0.1'
 
 from kivy.lang import Builder
 from kivy.uix.layout import Layout
