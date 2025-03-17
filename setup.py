@@ -1,32 +1,55 @@
-import os
-from setuptools import setup, find_packages
+"""See README.md for package documentation."""
 
-here = os.path.abspath(os.path.dirname(__file__))
+from setuptools import setup, find_namespace_packages
 
-with open(os.path.join(here, "kivy_garden", "simpletablelayout", "readme.md"), encoding="utf-8") as f:
+from io import open
+from os import path
+
+here = path.abspath(path.dirname(__file__))
+
+filename = path.join(here, 'kivy_garden', 'simpletablelayout', '_version.py')
+locals = {}
+with open(filename, "rb") as fh:
+    exec(compile(fh.read(), filename, 'exec'), globals(), locals)
+__version__ = locals['__version__']
+
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+URL = 'https://github.com/Tungsteno74/garden.simpletablelayout'
+
 setup(
-    name="kivy-garden.simpletablelayout", 
-    version="0.1",
-    author="Kivy",
-    author_email="kivy@kivy.org",
-    description="Simple Table Layout – Layout simile a una tabella HTML che supporta rowspan e colspan, integrato in Kivy Garden.",
+    name='kivy_garden.simpletablelayout',
+    version=__version__,
+    description='Simple Table Layout – HTML table-like layout that supports rowspan and colspan, built into Kivy Garden.',
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/Tungsteno74/garden.simpletablelayout", 
-    packages=find_packages(),
-    namespace_packages=["kivy_garden"],
-    include_package_data=True,
+    long_description_content_type='text/markdown',
+    url=URL,
+    author='Kivy',
+    author_email='kivy@kivy.org',
     classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "Intended Audience :: End Users/Desktop",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3",
-        "Operating System :: OS Independent",
-        "Topic :: Software Development :: User Interfaces",
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Libraries',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
-    python_requires=">=3.0",
-    install_requires=["kivy>=2.0.0"],
+    keywords='Kivy kivy-garden',
+    packages=find_namespace_packages(include=['kivy_garden.*']),
+    install_requires=[],
+    extras_require={
+        'dev': ['pytest>=3.6', 'pytest-cov', 'pytest-asyncio',
+                'sphinx_rtd_theme'],
+        'ci': ['coveralls', 'pycodestyle'],
+    },
+    package_data={},
+    data_files=[],
+    entry_points={},
+    project_urls={
+        'Bug Reports': URL + '/issues',
+        'Source': URL,
+    },
 )
